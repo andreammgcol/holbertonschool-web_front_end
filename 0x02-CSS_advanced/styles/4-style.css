@@ -1,7 +1,6 @@
 /* Custom font-family properties in the root element <html> using variables */
 
-html {
-  scroll-behavior: smooth;
+:root {
   --color-primary: #d73953;
   --color-black: #090909;
   --color-white: #ffffff;
@@ -10,6 +9,10 @@ html {
   --text-color: var(--color-black);
   --font-family-base: Helvetica Neue, Helvetica, Arial, sans-serif;
   --font-family-title: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

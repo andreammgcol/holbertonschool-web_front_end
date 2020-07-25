@@ -1,7 +1,6 @@
 /* Custom font-size properties in the root element <html> using variables */
 
-html {
-  scroll-behavior: smooth;
+:root {
   --color-primary: #d73953;
   --color-black: #090909;
   --color-white: #ffffff;
@@ -15,6 +14,10 @@ html {
   --font-size-large: 1.8rem;
   --font-size-x-large: 2.3rem;
   --font-size-xx-large: 4.8rem;
+}
+
+html {
+  scroll-behavior: smooth;
   font-size: 62.5%;
 }
 
