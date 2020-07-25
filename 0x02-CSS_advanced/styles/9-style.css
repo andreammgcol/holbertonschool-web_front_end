@@ -1,16 +1,14 @@
 /* anchor elements without decoration */
 
-html {
-  scroll-behavior: smooth;
+:root {
   --color-primary: #d73953;
   --color-black: #090909;
   --color-white: #ffffff;
   --color-light-grey: #f3f3f3;
   --color-dark-grey: #353535;
   --text-color: var(--color-black);
-  --font-family-base: "Open Sans","Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  --font-family-title: "Raleway","Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-size: 62.5%;
+  --font-family-base: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-family-title: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
   --font-size-small: 1.2rem;
   --font-size-medium: 1.6rem;
   --font-size-large: 1.8rem;
@@ -21,6 +19,11 @@ html {
   --line-height-small: 1.2;
   --line-height-base: 1.5;
   --line-height-big: 1.8;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 body {
