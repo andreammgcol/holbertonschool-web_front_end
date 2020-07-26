@@ -381,12 +381,12 @@ ul.row {
 }
 
 .card-work:hover .card-image {
-  transition-property: scale(1.2);
+  transform: scale(1.2);
+  transition: var(--transition-duration) var(--transition-cubic-bezier);
 }
 
 .card-work:hover .card-outer {
   transition-property: scale(0.95);
-  transition: var(--transition-duration) var(--transition-cubic-bezier);
 }
 
 .card-testimonial .card-quote {
