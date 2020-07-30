@@ -4,5 +4,5 @@
   $percent: (100/$i);
   .col-#{$i} {
     width: #{$percent}+"%";
-  } 
+  }
 }
