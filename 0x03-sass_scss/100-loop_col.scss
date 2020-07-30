@@ -3,6 +3,6 @@
 @for $i from 1 through 4 {
   $percent: (100/$i);
   .col-#{$i} {
-    width: #{$percent};
+    width: #{$percent}+"%";
   } 
 }
