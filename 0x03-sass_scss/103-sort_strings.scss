@@ -1,1 +1,45 @@
-$list_to_sort: john anna zoe kim felicia carrie;
+/* Sass file that sorts the variable $list_to_sort and prints the sorted list in the debug output. */
+@import "103-sort_list";
+
+$order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" !default;
+
+@function str-compare($a, $b, $order) {
+  $a: to-lower-case($a + unquote(""));
+  $b: to-lower-case($b + unquote(""));
+
+  @for $i from 1 through min(str-length($a), str-length($b)) {
+    $char-a: str-slice($a, $i, $i);
+    $char-b: str-slice($b, $i, $i);
+
+    @if $char-a and $char-b and index($order, $char-a) != index($order, $char-b) {
+      @return index($order, $char-a) < index($order, $char-b);
+    }
+  }
+  @return str-length($a) < str-length($b);
+
+}
+
+@function order_swap($list, $idx-a, $idx-b) {
+  @if abs($idx-a) > length($list) or abs($idx-b) > length($list) {
+    @return $list;
+  }
+  $tmp_list: nth($list, $idx-a);
+  $list: set-nth($list, $idx-a, nth($list, $idx-b));
+  $list: set-nth($list, $idx-b, $tmp_list);
+  @return $list;
+}
+
+@function sorting($list, $order) {
+  @for $i from 1 through length($list) {
+    @for $j from $i * -1 through -1 {
+      $j: abs($j);
+      @if $j > 1 and str-compare(nth($list, $j), nth($list, $j - 1), $order) {
+        $list: order_swap($list, $j, $j - 1);
+      }
+    }
+  }
+  @return $list;
+}
+
+$my_list: sorting($list_to_sort, $order);
+@debug $my_list;
