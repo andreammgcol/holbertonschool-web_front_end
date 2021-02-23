@@ -13,7 +13,7 @@ function main() {
   let darkMode = changeMode(12, 'bold', 'capitalize', 'black', 'white');
   let screamMode = changeMode(12, 'normal', 'lowercase', 'white', 'black');
 
-  let text = document.createElement('text');
+  let text = document.createElement('p');
   text.innerHTML = 'Welcome Holberton!';
   document.body.append(text);
 
