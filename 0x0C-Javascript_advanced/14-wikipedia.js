@@ -1,7 +1,7 @@
 function createElement(data) {
-  let paragraph = document.createElement('paragraph');
-  paragraph.innerHTML = JSON.parse(data).query.pages['21721040'].extract;
-  document.body.append(paragraph);
+  let parag = document.createElement('parag');
+  parag.innerHTML = JSON.parse(data).query.pages['21721040'].extract;
+  document.body.append(parag);
 }
 
 function queryWikipedia(callback) {
