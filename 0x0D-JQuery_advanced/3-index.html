@@ -13,38 +13,27 @@
 
        <script type="application/javascript">
            function createFamilyTree() {
-
-                $('body').append('<div id=' + 'my_table'+ '></div>');
-                $('#my_table').append(  '<table border=1 />' );
-
-                for(i=1;i<=3;i++){
-                    $('#my_table table').append( '<tr><td>' + 'result' +  i + '</td></tr>' );
-                }
-
-
-                /*
-               $('body').append('\
-                    <table> \
-                        <tr> \
-                            <th>Firstname</th> \
-                            <th>Lastname</th> \
-                        </tr> \
-                        <tr> \
-                            <td>Guillaume</td> \
-                            <td>Salva</td> \
-                        </tr> \
-                        <tr> \
-                            <td>Paulette</td> \
-                            <td>Salva</td> \
-                        </tr> \
-                        <tr> \
-                            <td>Antoine</td> \
-                            <td>Salva</td> \
-                        </tr> \
-                    </table> \
-                ');
-                */
-
+                $('body').append(`<table></table>`)
+                $('table').append('<tr></tr>')
+                $('tr').append('<th></th>', '<th></th>')
+                $('table').append('<tbody></tbody>')
+                $('tbody').append('<tr></tr>')
+                $('tbody').append('<tr></tr>')
+                $('tbody').append('<tr></tr>')
+                $('tbody > tr:nth-child(1)').append('<td></td>')
+                $('tbody > tr:nth-child(1)').append('<td></td>')
+                $('tbody > tr:nth-child(2)').append('<td></td>')
+                $('tbody > tr:nth-child(2)').append('<td></td>')
+                $('tbody > tr:nth-child(3)').append('<td></td>')
+                $('tbody > tr:nth-child(3)').append('<td></td>')
+				$('tr > th:first').text('Firstname')
+                $('tr > th:last').text('Lastname')
+                $('tr:nth-child(1) > td:first').text('Guillaume')
+                $('tr:nth-child(1) > td:last').text('Salva')
+                $('tr:nth-child(2) > td:first').text('Paulette')
+                $('tr:nth-child(2) > td:last').text('Salva')
+                $('tr:nth-child(3) > td:first').text('Antoine')
+                $('tr:nth-child(3) > td:last').text('Salva')
             }
            createFamilyTree();
        </script>
