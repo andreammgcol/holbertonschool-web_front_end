@@ -22,7 +22,7 @@
                 $('table').append('<tbody></tbody>');
             }
 
-            function addNewMember(firstName, lastName) {
+            function addNewMember(firstName, lastName, position) {
 				const addRow = '<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>(x)</td></tr>';
 				if (position == 'before') {
 					$('tbody').prepend(addRow);
