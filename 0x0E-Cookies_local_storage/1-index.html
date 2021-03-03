@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+        <script>
+            function setCookies() {
+                let name = document.querySelector('#firstname').value;
+                let email = document.querySelector('#email').value;
+                let date = new Date();
+                date.setTime(date.getTime() + (10*24*60*60*1000));
+                var expires = "expires="+ date.toUTCString();
+
+                document.cookie = `firstname=${name}; ${expires}; path:/`;
+                document.cookie = `email=${email}; ${expires}; path:/`;
+            }
+
+            function showCookies() {
+                let cookies = document.cookie;
+                let text = document.createElement('p');
+
+                text.innerHTML = `Cookies: ${cookies}`;
+                document.body.append(text);
+            }
+        </script>
+        
+    </head>
+
+    <body>
+
+        <h1>Login to the website</h1>
+        <input type="text" placeholder="Firstname" id="firstname">
+        <input type="text" placeholder="Email" id="email">
+        <button onclick="setCookies()">Log me in</button>
+        <h1>Cookies</h1>
+        <button onclick="showCookies()">Show the cokkies</button>
+        
+        
+    </body>
+
+</html>
