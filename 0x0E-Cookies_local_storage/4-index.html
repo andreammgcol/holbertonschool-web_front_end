@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Cookies</title>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+        
+    </head>
+
+    <body>
+
+        <div id="form">
+            <h1>Login to the website</h1>
+            <input type="text" placeholder="Firstname" id="firstname">
+            <input type="text" placeholder="Email" id="email">
+            <button onclick="setCookiesAndShowWelcomeMessage()">Log me in</button>
+        </div>
+
+        <script>
+            function setCookiesAndShowWelcomeMessage() {
+                let firstname = document.getElementById('firstname').value;
+                let email = document.getElementById('email').value;
+                Cookies.set('firstname', firstname, { expires: 10 });
+                Cookies.set('email', email, { expires: 10 });
+                showWelcomeMessageOrForm();
+            }
+
+            function showForm() {
+                document.getElementById('form').style.display = 'block';
+            }
+
+            function hideForm() {
+                document.getElementById('form').style.display = 'none';
+            }
+
+            function deleteCookiesAndShowForm() {
+                Cookies.remove('firstname');
+                Cookies.remove('email');
+                showForm();
+            }
+
+            function showWelcomeMessageOrForm() {
+                let email = Cookies.get('email')
+                let firstname = Cookies.get('firstname')
+                
+                if (firstname && email) {
+                    hideForm();
+
+                    let h1 = document.createElement('h1');
+                    h1.setAttribute('id', 'welcome');
+                    h1.innerText = `Welcome: ${firstname}`;
+
+                    let link = document.createElement('a');
+                    link.innerText = '(logout)';
+                    link.style.fontStyle = 'italic';
+                    link.style.marginLeft = '10px';
+                    link.style.fontWeight = 'normal';
+                    link.addEventListener('click', deleteCookiesAndShowForm);
+
+                    h1.appendChild(link);
+                    document.body.appendChild(h1);
+                } 
+                else {
+                    showForm();
+                }
+            }
+            showWelcomeMessageOrForm();
+        </script>
+        
+    </body>
+
+</html>
