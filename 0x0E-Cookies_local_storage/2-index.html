@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Cookies</title>
+        <script>
+            function setCookies() {
+                let name = document.querySelector('#firstname').value;
+                let email = document.querySelector('#email').value;
+                let date = new Date();
+                date.setTime(date.getTime() + (10*24*60*60*1000));
+                var expires = "expires="+ date.toUTCString();
+
+                document.cookie = `firstname=${name}; ${expires}; path:/`;
+                document.cookie = `email=${email}; ${expires}; path:/`;
+            }
+
+            function showCookies() {
+                let cookies = document.cookie;
+                let text = document.createElement('p');
+                let email = getCookie("email");
+                let firstname = getCookie("firstname");
+
+                text.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
+                document.body.append(text);
+            }
+
+            function getCookie(name) {
+                var cname = name + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(cname) == 0) {
+                    return c.substring(cname.length, c.length);
+                    }
+                }
+                return "";
+            }
+        </script>
+        
+    </head>
+
+    <body>
+
+        <h1>Login to the website</h1>
+        <input type="text" placeholder="Firstname" id="firstname">
+        <input type="text" placeholder="Email" id="email">
+        <button onclick="setCookies()">Log me in</button>
+        <h1>Cookies</h1>
+        <button onclick="showCookies()">Show the cokkies</button>
+
+    </body>
+
+</html>
